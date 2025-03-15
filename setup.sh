@@ -99,7 +99,7 @@ fi
 if [ "$INSTALL_THEMES" == "true" ]; then
     if [ ! -d "$HOME/.themes/Marble-green-dark" ]; then
         echo ">> Installing Marble Theme..."
-        git clone https://github.com/imarkoff/Marble-shell-theme.git
+        git clone https://github.com/imarkoff/Marble-shell-theme.git &> /dev/null
         cd Marble-shell-theme
         python install.py --green
         cd ..
@@ -109,7 +109,7 @@ if [ "$INSTALL_THEMES" == "true" ]; then
 
     if [ ! -d "$HOME/.themes/Graphite-teal-Dark-nord-Dark" ]; then
         echo ">> Installing Graphite Theme..."
-        git clone https://github.com/vinceliuice/Graphite-gtk-theme
+        git clone https://github.com/vinceliuice/Graphite-gtk-theme &> /dev/null
         cd Graphite-gtk-theme
         bash install.sh --name "Graphite-teal-Dark-nord" --tweaks rimless -c dark
         cd ..
