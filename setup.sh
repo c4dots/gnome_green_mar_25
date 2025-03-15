@@ -111,7 +111,7 @@ if [ "$INSTALL_THEMES" == "true" ]; then
         echo ">> Installing Graphite Theme..."
         git clone https://github.com/vinceliuice/Graphite-gtk-theme
         cd Graphite-gtk-theme
-        sh install.sh --name "Graphite-teal-Dark-nord" --tweaks rimless -c dark
+        bash install.sh --name "Graphite-teal-Dark-nord" --tweaks rimless -c dark
         cd ..
     else
         echo ">> Graphite Theme is already installed, skipping."
@@ -230,7 +230,7 @@ if [ "$UPDATE_ZSH" == "true" ]; then
         echo ">> Oh my ZShell is already installed."
     else
         echo ">> Installing Oh my ZShell..."
-        yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        yes | bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding "'<Super>t'"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command "'gnome-terminal -- zsh'"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name "'terminal'"
