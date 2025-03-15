@@ -1,0 +1,13 @@
+[org/gnome/gedit/preferences/editor]
+scheme='Yaru-dark'
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(1048, 822)
+state=87168

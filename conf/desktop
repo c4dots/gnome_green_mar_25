@@ -1,0 +1,10 @@
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+document-font-name='Sans 11'
+font-antialiasing='rgba'
+font-hinting='slight'
+font-name='Ubuntu 11'
+monospace-font-name='Ubuntu Mono 13'
+
+[org/gnome/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'

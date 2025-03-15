@@ -1,0 +1,9 @@
+[org/gnome/shell/extensions/ding]
+add-volumes-opposite=false
+check-x11wayland=true
+icon-size='small'
+show-home=false
+show-link-emblem=false
+show-trash=false
+show-volumes=false
+start-corner='top-left'

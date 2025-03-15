@@ -1,0 +1,13 @@
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>v'
+command='/usr/bin/diodon'
+name='diodon'
+
+[net/launchpad/diodon/clipboard]
+add-images=true
+recent-items-size=uint32 100
+synchronize-clipboards=true
+use-clipboard=true
+
+[net/launchpad/diodon/plugins]
+active-plugins=@as []
