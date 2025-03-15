@@ -53,6 +53,46 @@ for ARG in "$@"; do
   esac
 done
 
+########################################### PACKAGES ###########################################
+
+PACKAGES=( "nautilus" "git" "python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
+
+install_package() {
+    local package="$1"
+
+    if command -v "$package" &>/dev/null || 
+       (command -v dpkg &>/dev/null && dpkg -l | grep -q "^ii  $package ") || 
+       (command -v rpm &>/dev/null && rpm -q "$package" &>/dev/null) || 
+       (command -v pacman &>/dev/null && pacman -Q "$package" &>/dev/null); then
+        echo " | $package is already installed."
+        return 0
+    fi
+
+    echo " | Installing $package..."
+
+    if command -v apt &>/dev/null; then
+        sudo apt install -y "$package" &> /dev/null
+    elif command -v dnf &>/dev/null; then
+        sudo dnf install -y "$package" &> /dev/null
+    elif command -v pacman &>/dev/null; then
+        sudo pacman -S --noconfirm "$package" &> /dev/null
+    elif command -v yay &>/dev/null; then
+        yay -S --noconfirm "$package" &> /dev/null
+    else
+        echo "No supported package manager found. Please install '$package' manually."
+        return 2
+    fi
+}
+
+if [ "$INSTALL_PACKAGES" == "true" ]; then
+    echo ">> Installing packages"
+    for PACKAGE in "${PACKAGES[@]}"; do
+        install_package "$PACKAGE"
+    done
+fi
+
+########################################### PACKAGES ###########################################
+
 ########################################### THEMES ###########################################
 
 # Theme
@@ -94,46 +134,6 @@ if [ "$INSTALL_ICONS" == "true" ]; then
 fi
 
 ########################################### THEMES ###########################################
-
-########################################### PACKAGES ###########################################
-
-PACKAGES=( "nautilus" "git" "python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
-
-install_package() {
-    local package="$1"
-
-    if command -v "$package" &>/dev/null || 
-       (command -v dpkg &>/dev/null && dpkg -l | grep -q "^ii  $package ") || 
-       (command -v rpm &>/dev/null && rpm -q "$package" &>/dev/null) || 
-       (command -v pacman &>/dev/null && pacman -Q "$package" &>/dev/null); then
-        echo " | $package is already installed."
-        return 0
-    fi
-
-    echo " | Installing $package..."
-
-    if command -v apt &>/dev/null; then
-        sudo apt install -y "$package" &> /dev/null
-    elif command -v dnf &>/dev/null; then
-        sudo dnf install -y "$package" &> /dev/null
-    elif command -v pacman &>/dev/null; then
-        sudo pacman -S --noconfirm "$package" &> /dev/null
-    elif command -v yay &>/dev/null; then
-        yay -S --noconfirm "$package" &> /dev/null
-    else
-        echo "No supported package manager found. Please install '$package' manually."
-        return 2
-    fi
-}
-
-if [ "$INSTALL_PACKAGES" == "true" ]; then
-    echo ">> Installing packages"
-    for PACKAGE in "${PACKAGES[@]}"; do
-        install_package "$PACKAGE"
-    done
-fi
-
-########################################### PACKAGES ###########################################
 
 ########################################### EXTENSIONS ###########################################
 
