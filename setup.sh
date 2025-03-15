@@ -255,6 +255,7 @@ if [ "$UPDATE_BACKGROUND" == "true" ]; then
     echo ">> Loading background..."
     cp conf/background.png ~/.config/background
     gsettings set org.gnome.desktop.background picture-uri ~/.config/background
+    gsettings set org.gnome.desktop.background picture-uri-dark ~/.config/background
 fi
 
 ########################################### CONFIGS ###########################################
