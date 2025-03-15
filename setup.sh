@@ -55,7 +55,7 @@ done
 
 ########################################### PACKAGES ###########################################
 
-PACKAGES=( "nautilus" "git" "python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
+PACKAGES=( "nautilus" "git" "python3" "python-is-python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
 
 install_package() {
     local package="$1"
