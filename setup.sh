@@ -142,7 +142,7 @@ cd extensions
 
 function install_ding() {
     echo ">> Installing Desktop Icons NG..."
-    git clone https://gitlab.com/rastersoft/desktop-icons-ng ~/.local/share/gnome-shell/extensions/ding@rastersoft.com &> /dev/null
+    git clone https://gitlab.com/rastersoft/desktop-icons-ng /usr/share/gnome-shell/extensions/ding@rastersoft.com &> /dev/null
 
     dconf load / < ../conf/ding
 }
@@ -153,19 +153,19 @@ function install_top_bar() {
     # Open bar
     echo " | Installing Openbar..."
     git clone https://github.com/neuromorph/openbar &> /dev/null
-    cp -R openbar/openbar@neuromorph/ ~/.local/share/gnome-shell/extensions/
+    cp -R openbar/openbar@neuromorph/ /usr/share/gnome-shell/extensions/
 
     # Top bar organizer
     echo " | Installing Top Bar Organizer..."
     git clone https://gitlab.gnome.org/june/top-bar-organizer &> /dev/null
-    cp -R top-bar-organizer/src ~/.local/share/gnome-shell/extensions/top-bar-organizer@julian.gse.jsts.xyz
+    cp -R top-bar-organizer/src /usr/share/gnome-shell/extensions/top-bar-organizer@julian.gse.jsts.xyz
 
     dconf load / < ../conf/topbar
 }
 
 function install_search_light() {
     echo ">> Installing Search Light..."
-    git clone https://github.com/icedman/search-light ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com &> /dev/null
+    git clone https://github.com/icedman/search-light /usr/share/gnome-shell/extensions/search-light@icedman.github.com &> /dev/null
     dconf load / < ../conf/searchlight
 }
 
