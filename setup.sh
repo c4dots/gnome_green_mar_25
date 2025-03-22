@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo -S -v
+
 UPDATE_BACKGROUND=true
 UPDATE_ZSH=true
 INSTALL_PACKAGES=true
