@@ -168,7 +168,7 @@ function install_top_bar() {
 
 function install_search_light() {
     echo ">> Installing Search Light..."
-    sudo git clone https://github.com/icedman/search-light /usr/share/gnome-shell/extensions/search-light@icedman.github.com &> /dev/null
+    sudo git clone https://github.com/icedman/search-light ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com &> /dev/null
     dconf load / < ../conf/searchlight
 }
 
