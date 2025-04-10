@@ -179,8 +179,7 @@ function install_search_light() {
 
 function install_dash_to_panel() {
     echo ">> Installing Dash to Panel..."
-    git clone https://github.com/home-sweet-gnome/dash-to-panel &> /dev/null
-    sudo make -C dash-to-panel &> /dev/null
+    sudo git clone https://github.com/home-sweet-gnome/dash-to-panel ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com &> /dev/null
     dconf load / < ../conf/dashtopanel
 }
 
