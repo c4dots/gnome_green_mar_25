@@ -10,6 +10,7 @@ INSTALL_SEARCH_LIGHT=true
 INSTALL_DING=true
 INSTALL_TOP_BAR=true
 INSTALL_DASH_TO_PANEL=true
+INSTALL_ARC_MENU=true
 
 for ARG in "$@"; do
   case $ARG in
@@ -37,6 +38,9 @@ for ARG in "$@"; do
     --no-ding)
       INSTALL_DING=false
       ;;
+    --no-arc-menu)
+      INSTALL_ARC_MENU=false
+      ;;
     --help)
       echo ">> HELP"
       echo " | '--no-zsh': Disables the installation or update of ZShell."
@@ -47,9 +51,10 @@ for ARG in "$@"; do
       echo " | '--no-search-light': Disables the installation of the Search Light Extension."
       echo " | '--no-dash': Prevents from installing the dash (/taskbar)."
       echo " | '--no-ding': Disables the installation of the Desktop Icons NG (DING) Extension."
+      echo " | '--no-arc-menu': Disables the installation of the Arc Menu Extension."
       echo " | '--help': Displays the usage of different options."
       echo ""
-      echo ">> Usage: $0 [--no-zsh] [--no-themes] [--no-icons] [--no-background] [--no-search-light] [--no-dash] [--no-ding] [--no-packages] [--help]"
+      echo ">> Usage: $0 [--no-zsh] [--no-themes] [--no-icons] [--no-background] [--no-search-light] [--no-dash] [--no-ding] [--no-arc-menu] [--no-packages] [--help]"
       exit 0
       ;;
   esac
@@ -179,6 +184,12 @@ function install_dash_to_panel() {
     dconf load / < ../conf/dashtopanel
 }
 
+function install_arc_menu() {
+    echo ">> Installing Dash to Panel..."
+    sudo git clone https://gitlab.com/arcmenu/ArcMenu ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com &> /dev/null
+    dconf load / < ../conf/arcmenu
+}
+
 if [ "$INSTALL_DING" == "true" ]; then
     install_ding
 fi
@@ -193,6 +204,10 @@ fi
 
 if [ "$INSTALL_SEARCH_LIGHT" == "true" ]; then
     install_search_light
+fi
+
+if [ "$INSTALL_ARC_MENU" == "true" ]; then
+    install_arc_menu
 fi
 
 cd ..
@@ -219,6 +234,10 @@ fi
 
 if [ "$INSTALL_SEARCH_LIGHT" == "true" ]; then
     gnome-extensions enable search-light@icedman.github.com &> /dev/null
+fi
+
+if [ "$INSTALL_ARC_MENU" == "true" ]; then
+    gnome-extensions enable arcmenu@arcmenu.com &> /dev/null
 fi
 
 if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
