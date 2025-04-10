@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Go into cache folder
-mkdir -p ~/.cache/.dotcache/ &> /dev/null
+sudo -S mkdir -p ~/.cache/.dotcache/ &> /dev/null
 cd ~/.cache/.dotcache/
 
 # Clone repo
