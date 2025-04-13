@@ -183,8 +183,9 @@ function install_dash_to_panel() {
 
     if [ ! -d "$HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com" ] && [ ! -d "/usr/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com" ]; then
       sudo git clone https://github.com/home-sweet-gnome/dash-to-panel ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com &> /dev/null
-      dconf load / < ../conf/dashtopanel
     fi
+    
+    dconf load / < ../conf/dashtopanel
 }
 
 function install_arc_menu() {
@@ -193,8 +194,9 @@ function install_arc_menu() {
     
     if [ ! -d "$HOME/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com" ] && [ ! -d "/usr/share/gnome-shell/extensions/arcmenu@arcmenu.com" ]; then
       sudo git clone https://gitlab.com/arcmenu/ArcMenu ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com &> /dev/null
-      dconf load / < ../conf/arcmenu
     fi
+    
+    dconf load / < ../conf/arcmenu
 }
 
 if [ "$INSTALL_DING" == "true" ]; then
