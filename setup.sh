@@ -181,12 +181,16 @@ function install_dash_to_panel() {
     echo ">> Installing Dash to Panel..."
     sudo git clone https://github.com/home-sweet-gnome/dash-to-panel ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com &> /dev/null
     dconf load / < ../conf/dashtopanel
+
+    install_package "gnome-shell-extension-dash-to-panel"
 }
 
 function install_arc_menu() {
     echo ">> Installing Dash to Panel..."
     sudo git clone https://gitlab.com/arcmenu/ArcMenu ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com &> /dev/null
     dconf load / < ../conf/arcmenu
+
+    install_package "gnome-shell-extension-arc-menu"
 }
 
 if [ "$INSTALL_DING" == "true" ]; then
