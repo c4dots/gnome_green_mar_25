@@ -179,18 +179,22 @@ function install_search_light() {
 
 function install_dash_to_panel() {
     echo ">> Installing Dash to Panel..."
-    sudo git clone https://github.com/home-sweet-gnome/dash-to-panel ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com &> /dev/null
-    dconf load / < ../conf/dashtopanel
-
     install_package "gnome-shell-extension-dash-to-panel"
+
+    if [ ! -d "$HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com" ] && [ ! -d "/usr/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com" ]; then
+      sudo git clone https://github.com/home-sweet-gnome/dash-to-panel ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com &> /dev/null
+      dconf load / < ../conf/dashtopanel
+    fi
 }
 
 function install_arc_menu() {
     echo ">> Installing Dash to Panel..."
-    sudo git clone https://gitlab.com/arcmenu/ArcMenu ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com &> /dev/null
-    dconf load / < ../conf/arcmenu
-
     install_package "gnome-shell-extension-arc-menu"
+    
+    if [ ! -d "$HOME/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com" ] && [ ! -d "/usr/share/gnome-shell/extensions/arcmenu@arcmenu.com" ]; then
+      sudo git clone https://gitlab.com/arcmenu/ArcMenu ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com &> /dev/null
+      dconf load / < ../conf/arcmenu
+    fi
 }
 
 if [ "$INSTALL_DING" == "true" ]; then
