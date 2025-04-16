@@ -62,7 +62,7 @@ done
 
 ########################################### PACKAGES ###########################################
 
-PACKAGES=( "nautilus" "git" "python3" "python-is-python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
+PACKAGES=( "nautilus" "git" "python3" "python-is-python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" "xdotool" )
 
 install_package() {
     local package="$1"
@@ -224,7 +224,7 @@ cd ..
 # Reload gnome shell
 echo ">> Reloading gnome shell..."
 if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
-    dbus-launch killall -HUP gnome-shell &> /dev/null
+    xdotool key "Alt+F2+r" && sleep .2 && xdotool key "Return"
 fi
 
 # Enable extensions
@@ -250,7 +250,7 @@ if [ "$INSTALL_ARC_MENU" == "true" ]; then
 fi
 
 if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
-    dbus-launch killall -HUP gnome-shell &> /dev/null
+    xdotool key "Alt+F2+r" && sleep .2 && xdotool key "Return"
 fi
 ########################################### EXTENSIONS ###########################################
 
